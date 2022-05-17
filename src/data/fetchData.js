@@ -12,7 +12,7 @@ async function getJobs(page, q = null) {
     );
     return { jobs: filtedJobs, pagesTotal: 1 };
   } else {
-    return { jobs: jobs.slice((page - 1) * 5, page * 5 - 1), pagesTotal: 2 };
+    return { jobs: jobs.slice((page - 1) * 6, page * 6 - 1), pagesTotal: 2 };
   }
 }
 

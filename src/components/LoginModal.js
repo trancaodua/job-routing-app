@@ -12,11 +12,9 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
   bgcolor: "background.paper",
   borderRadius: 2,
   boxShadow: 24,
-  p: 2,
   border: "none",
 };
 
@@ -35,24 +33,6 @@ function LoginModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <Typography
-              align="center"
-              variant="h5"
-              component={"div"}
-              sx={{ flexGrow: 1 }}
-            >
-              Login
-            </Typography>
-            <IconButton
-              onClick={handleClose}
-              size="large"
-              color="inherit"
-              sx={{ mr: 2 }}
-            >
-              <CloseIcon />
-            </IconButton>
-          </Box>
           <LoginForm callback={() => {}} />
         </Box>
       </Modal>

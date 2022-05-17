@@ -10,11 +10,16 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import AuthContext from "../auth/AuthContext";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const style = {
   bgcolor: "background.paper",
   display: "flex",
   flexDirection: "column",
+  width: "300px",
+  border: "1px solid",
+  padding: "10px",
+  borderRadius: "5px",
 };
 
 function LoginForm({ callback }) {
@@ -32,15 +37,18 @@ function LoginForm({ callback }) {
   };
 
   return (
-    <Box sx={style} component="form">
+    <Box sx={style} component="form" gap={4}>
+      <Typography variant="h4" component="div">
+        Login
+      </Typography>
       <TextField
         disabled
         label="Username"
         default="user"
         value={username}
-        sx={{ m: 1, width: "25ch" }}
+        sx={{ m: 1 }}
       />
-      <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
+      <FormControl sx={{ m: 1 }} variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
           disabled

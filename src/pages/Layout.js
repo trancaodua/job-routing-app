@@ -1,13 +1,21 @@
 import React from "react";
 import { Outlet, Link } from "react-router-dom";
 import Navigation from "../components/Navigation";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
 
 function Layout() {
   return (
-    <div>
+    <Stack
+      sx={{
+        minHeight: "100vh",
+        backgroundColor: (theme) => theme.palette.primary.main,
+      }}
+    >
       <Navigation />
       <Outlet />
-    </div>
+      <Box sx={{ flexGrow: 1 }} />
+    </Stack>
   );
 }
 

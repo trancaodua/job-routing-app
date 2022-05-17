@@ -3,8 +3,6 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import HomeIcon from "@mui/icons-material/Home";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import LogoutIcon from "@mui/icons-material/Logout";
 import LoginIcon from "@mui/icons-material/Login";
@@ -13,6 +11,7 @@ import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import AuthContext from "../auth/AuthContext";
 import Avatar from "@mui/material/Avatar";
+import Typography from "@mui/material/Typography";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -75,21 +74,25 @@ function Navigation() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box>
+      <AppBar
+        position="static"
+        sx={{ backgroundColor: (theme) => theme.palette.primary.light }}
+      >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 0 }}
+          <Typography
+            component="h4"
+            variant="h4"
+            sx={{
+              display: { xs: "none", md: "block" },
+              cursor: "pointer",
+            }}
             onClick={() => {
               navigate("/");
             }}
           >
-            <HomeIcon />
-          </IconButton>
+            Job Routing
+          </Typography>
           <Box component="form" onSubmit={handleSubmit}>
             <Search>
               <SearchIconWrapper>

@@ -7,6 +7,7 @@ import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import { useSearchParams } from "react-router-dom";
+import { Typography } from "@mui/material";
 
 const CentterPagination = styled(Pagination)(({ theme }) => ({
   ul: {
@@ -31,26 +32,35 @@ function Home() {
   }, [page, q]);
 
   return (
-    <Container sx={{ p: 3 }}>
-      <Grid container spacing={3} sx={{ mb: 5 }}>
-        {jobs.map((job) => (
-          <Grid key={job.id} item md={6} xs={12}>
-            <JobCard
-              id={job.id}
-              title={job.title}
-              description={job.description}
-              skills={job.skills}
-            />
+    <Container sx={{ p: 3 }} maxWidth="lg">
+      {jobs.length > 0 ? (
+        <>
+          <Grid container spacing={3}>
+            {jobs.map((job) => (
+              <Grid key={job.id} item lg={3} md={4} sm={6} xs={12}>
+                <JobCard
+                  id={job.id}
+                  title={job.title}
+                  description={job.description}
+                  skills={job.skills}
+                />
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-      <CentterPagination
-        count={pagesTotal}
-        color="primary"
-        onChange={(event, value) => {
-          setPage(value);
-        }}
-      />
+          <CentterPagination
+            sx={{ marginTop: "15px" }}
+            count={pagesTotal}
+            color="primary"
+            onChange={(event, value) => {
+              setPage(value);
+            }}
+          />
+        </>
+      ) : (
+        <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
+          No Result
+        </Typography>
+      )}
     </Container>
   );
 }
